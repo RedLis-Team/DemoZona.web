@@ -1,15 +1,16 @@
-import { Header } from './component/header/Header';
 import { Aside } from './component/aside/Aside';
 import { Demo } from './component/demo/Demo';
 
+import './app.scss'
+import { useState } from 'react';
+
 export function App(){
+    const [ai, setAi]  =  useState(null)
+
     return (
-        <div>
-            <Header/>
-            <div>
-                <Aside/>
-                <Demo/>
-            </div>
+        <div className='app'>
+            <Aside setAi={setAi}/>
+            <Demo ai={ai}/>
         </div>
 
     )
