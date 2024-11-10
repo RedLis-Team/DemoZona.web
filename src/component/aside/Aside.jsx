@@ -6,47 +6,47 @@ const ai = {
     'Чат-бот': [
         {
             name: 'Gigachat API',
-            url: '#',
+            url: '',
         },
     ],
     'Видео': [
         {
             name: 'Deep-live-cam',
-            url: '#',
+            url: '',
         },
         {
             name: 'LLava-NEXT',
-            url: '#',
+            url: '',
         },
         {
             name: 'Gpose',
-            url: '#',
+            url: '',
         },
         {
             name: 'YOLO11',
-            url: '#',
+            url: 'http://127.0.0.1:7860/',
         },
     ],
     'Аудио': [
         {
             name: 'WSR',
-            url: '#',
+            url: '',
         },
         {
             name: 'audiocraft',
-            url: '#',
+            url: '',
         },
         {
             name: 'xtts',
-            url: '#',
+            url: '',
         },
         {
             name: 'Seed-vc',
-            url: '#',
+            url: '',
         },
         {
             name: 'SDXL',
-            url: '#',
+            url: '',
         },
     ],
 };
