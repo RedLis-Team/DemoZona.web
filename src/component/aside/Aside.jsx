@@ -70,7 +70,7 @@ export function Aside({ setAi }) {
                         </div>
                         <div className="aside__block_nav_buttons">
                             {ai[blockName].map(({ name, url }) => (
-                                <button key={name}>{name}</button>
+                                <button key={name} onClick={() => setAi({ name, url })}>{name}</button>
                             ))}
                         </div>
                     </div>

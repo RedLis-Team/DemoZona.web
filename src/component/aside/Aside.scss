@@ -1,6 +1,6 @@
 .aside {
-
 	max-width: 350px;
+	min-height: 100vh;
 
 	background: #02633D;
 
@@ -13,6 +13,14 @@
 	color: #F3F3F3;
 	font-family: "Inter", sans-serif;
 
+	overflow: scroll;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+
+	-ms-overflow-style: none; /* IE и Edge */
+	scrollbar-width: none;
 }
 
 
@@ -79,6 +87,4 @@
 			color: #02633D;
 		}
 	}
-
-
 }
