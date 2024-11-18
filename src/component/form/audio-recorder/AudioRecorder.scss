@@ -1,0 +1,54 @@
+.audio-recorder {
+	width: 100%;
+	border: 1px solid var(--content-color);
+	border-radius: 10px;
+	overflow: hidden;
+
+
+	&__btn {
+		background: white;
+
+		color: #e73b1d;
+		font-size: 20px;
+
+		display: flex;
+
+		padding: 5px;
+
+		border: 2px solid var(--content-color);
+
+		border-radius: 5px;
+
+		cursor: pointer;
+
+		&:hover {
+			background: #dddddd;
+
+		}
+	}
+
+	&__audio {
+		background: white;
+		width: 100%;
+
+		display: flex;
+
+		border-radius: 5px 5px 0 0;
+
+		border-bottom: 1px solid var(--content-color);
+
+		padding: 10px;
+	}
+
+	&__controls {
+		background: white;
+		width: 100%;
+
+		padding: 10px;
+		border-radius: 0 0 10px 10px;
+	}
+}
+
+.play_puase {
+	color: #02633D;
+}

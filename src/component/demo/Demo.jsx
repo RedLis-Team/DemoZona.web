@@ -1,10 +1,10 @@
 import './Demo.scss';
-import { Hello } from '../hello/Hello';
+import {Outlet} from "react-router-dom";
 
-export function Demo({ ai }) {
+export function Demo() {
     return (
         <div className="demo">
-            {ai ? <iframe src={ai.url} className="demo__iframe"/> : <Hello/>}
+            <Outlet/>
         </div>
     );
 }

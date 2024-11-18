@@ -1,0 +1,32 @@
+
+.btn {
+	background: var(--theme-color);
+	font-family: var(--font-family);
+
+	color: white;
+	font-size: 16px;
+
+	padding: 10px 10px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+
+	display: flex;
+
+	align-items: center;
+	gap: 20px;
+	justify-content: center;
+
+	&:hover {
+		background: #025334;
+	}
+
+	&:active {
+		background: #013925;
+	}
+
+	&:disabled {
+		color: #c5c5c5;
+		background: #707070;
+	}
+}
