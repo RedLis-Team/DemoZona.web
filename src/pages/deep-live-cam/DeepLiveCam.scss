@@ -1,0 +1,25 @@
+.deep-live-cam {
+	display: flex;
+
+	align-items: center;
+	justify-content: center;
+
+	gap: 20px;
+	padding: 20px;
+
+	&__select {
+		width: 20%;
+		height: min-content;
+	}
+
+
+	&__img {
+		width: 80%;
+		object-fit: cover;
+	}
+
+	&__empty {
+		width: 80%;
+		height: 600px;
+	}
+}

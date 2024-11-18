@@ -33,8 +33,15 @@ const options = [
 	},
 ];
 
-export function MySelect({ onChange: onChangeValue = (url) => {}, ...otherProps }) {
-	const [url, setUrl] = useState(options[0].value);
+export function MySelect({
+	onChange: onChangeValue = (url) => {},
+	type = 'audio',
+	selectOptions = options,
+	contanerLabel = 'Готовые голоса',
+	className,
+	...otherProps
+}) {
+	const [url, setUrl] = useState(selectOptions[0].value);
 
 	useEffect(() => {
 		onChangeValue(url);
@@ -46,11 +53,16 @@ export function MySelect({ onChange: onChangeValue = (url) => {}, ...otherProps 
 	};
 
 	return (
-		<ContentWithHeader text="Готовые голоса">
-			<Audio src={url} onChange={(e) => console.log(e.target)}/>
+		<ContentWithHeader text={contanerLabel} className={className}>
+			{type === 'audio' && (
+				<Audio src={url} onChange={(e) => console.log(e.target)}/>
+			)}
+			{type === 'image' && (
+				<img src={url} alt={''} className={'select__image'}/>
+			)}
 			<Select
-				options={options}
-				defaultValue={options[0]}
+				options={selectOptions}
+				defaultValue={selectOptions[0]}
 				onChange={onChange}
 				className={'select'}
 				{...otherProps}

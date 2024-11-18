@@ -5,6 +5,6 @@ export function Audio({
 	...otherProps
 }) {
 	return (
-		<audio controls {...otherProps} onChange={(e) => console.log(e.target.files)} className={'audio'}/>
+		<audio controls {...otherProps} className={'audio'}/>
 	);
 }

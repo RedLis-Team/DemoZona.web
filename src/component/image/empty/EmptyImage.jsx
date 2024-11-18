@@ -3,10 +3,16 @@ import { ContentWithHeader } from "../../content/wih-header/ContentWithHeader";
 import './EmptyImage.scss';
 import { IoImageOutline } from "react-icons/io5";
 import { MutatingDots } from "react-loader-spinner";
+import clsx from "clsx";
 
-export function EmptyImage({ isLoading }) {
+export function EmptyImage({
+	isLoading,
+	className,
+	loadingText = 'Генерация картинки',
+	loadedText = 'Сгенерировать картинку',
+}) {
 	return (
-		<ContentWithHeader text={"Изображение"} contentClassName={'empty-image'}>
+		<ContentWithHeader text={"Изображение"} className={clsx('empty-image', className)}>
 			<div className="empty-image__content">
 				{isLoading ? (
 					<MutatingDots
@@ -24,7 +30,7 @@ export function EmptyImage({ isLoading }) {
 					<IoImageOutline/>
 				)}
 
-				{isLoading ? 'Генерация картинки' : 'Сгенерировать картинку'}
+				{isLoading ? loadingText : loadedText}
 			</div>
 		</ContentWithHeader>
 	);

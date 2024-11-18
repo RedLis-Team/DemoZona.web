@@ -4,6 +4,8 @@ import { TTS } from "../pages/tts";
 import { Seed } from "../pages/seed";
 import { SDXL } from "../pages/sdxl/SDXL.jsx";
 import { Audiocraft } from "../pages/audicraft/Audiocraft.jsx";
+import { DeepLiveCam } from "../pages/deep-live-cam/DeepLiveCam.jsx";
+import { Emotion } from "../pages/emotion/Emotion";
 
 export const router = createBrowserRouter([
 	{
@@ -19,12 +21,12 @@ export const router = createBrowserRouter([
 				element: "",
 			},
 			{
-				path: "emo",
-				element: "",
+				path: "emotion",
+				element: <Emotion/>,
 			},
 			{
-				path: "deep-live",
-				element: "",
+				path: "deep-live-cam",
+				element: <DeepLiveCam/>,
 			},
 			{
 				path: "tts",

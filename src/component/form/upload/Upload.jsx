@@ -3,6 +3,7 @@ import { Audio } from "../../audio/Audio.jsx";
 
 import './Upload.scss';
 import { ContentHeaderDeleteBtn } from "../../content/delete-btn/ContentHeaderDeleteBtn";
+import clsx from "clsx";
 
 
 export function Upload({ className, info = '', emptyText = 'Загрузите файл', ...otherProps }) {
@@ -24,7 +25,7 @@ export function Upload({ className, info = '', emptyText = 'Загрузите �
 	};
 
 	return (
-		<div className="upload">
+		<div className={clsx('upload',className)}>
 			<div className="upload__header">
 				<div className="upload__header_info">
 					{info || 'аудио'}

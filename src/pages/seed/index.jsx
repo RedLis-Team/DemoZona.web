@@ -9,7 +9,7 @@ import { useState } from "react";
 import axios from "axios";
 import { localAxios } from "../../http";
 
-const seedUrl = 'http://77.37.239.19:8080';
+const seedUrl = 'http://localhost:8080';
 
 const seedAxios = axios.create({
 	baseURL: seedUrl,
@@ -27,15 +27,14 @@ export function Seed() {
 	const onSend = async () => {
 		try {
 			setIsLoading(true);
+			setAnsUrl('')
 
-			const { data } = await localAxios.post(form.targetUrl);
+			const { data } = await localAxios.get(form.targetUrl, {responseType: 'blob'});
 
-			console.log(data);
-			// const audio = new File([data], 'test.wav', { type: 'audio/wav' });
 			const targetFormData = new FormData();
 			targetFormData.append("file", data);
 
-			await seedAxios.post('/load_target', { file: data });
+			await seedAxios.post('/load_target', targetFormData);
 
 			const sourceData = new FormData();
 			sourceData.append('file', form.source);
@@ -59,7 +58,7 @@ export function Seed() {
 				<AudioRecorder onChange={(blob) => setForm(prev => ({ ...prev, source: blob }))}/>
 				<MySelect onChange={(url) => setForm(prev => ({ ...prev, targetUrl: url }))}/>
 				<Button text={'Сгенерировать'} onClick={onSend}
-				        disabled={isLoading || !form.source}/>
+				        disabled={isLoading || !form.source}isLoading={isLoading}/>
 			</div>
 			<div className="seed__result">
 				<ContentWithHeader text={'Результат'}>

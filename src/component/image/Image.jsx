@@ -9,6 +9,7 @@ export function Image({ src, alt, className }) {
 				backgroundSize: 'cover',
 				backgroundPosition: 'center center',
 			}}
+			className={className}
 			text={'Изображение'}
 		/>
 	);

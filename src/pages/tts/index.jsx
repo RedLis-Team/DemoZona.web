@@ -21,23 +21,25 @@ export function TTS() {
 	const [audioUrl, setAudioUrl] = useState('');
 	const [text, setText] = useState('');
 
+	const [answerUrl, setAnswerUrl] = useState('');
+
 	const onSend = async () => {
 		try {
 			setIsLoading(true);
 
-			const { data } = await localAxios.post(audioUrl);
+			setAnswerUrl('')
 
-			const file = new File([data], 'тест1.wav', { type: 'audio/wav' });
+			const { data } = await localAxios.get(audioUrl, {responseType: 'blob'});
 
 			const formData = new FormData();
 
-			formData.append("file", file);
-
-			console.log(1);
+			formData.append("file", data);
 
 			await ttsAxios.post('/loadsound', formData);
 
 			await ttsAxios.post(`/run?text=${text}`);
+
+			setAnswerUrl(`${ttsUrl}/answer`)
 
 		} catch (e) {} finally {
 			setIsLoading(false);
@@ -53,7 +55,7 @@ export function TTS() {
 			</div>
 			<div className="tts__output">
 				<ContentWithHeader text={'Результат'}>
-					<Audio/>
+					<Audio src={answerUrl} />
 				</ContentWithHeader>
 			</div>
 		</div>
