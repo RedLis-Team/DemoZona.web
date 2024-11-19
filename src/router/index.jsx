@@ -6,6 +6,7 @@ import { SDXL } from "../pages/sdxl/SDXL.jsx";
 import { Audiocraft } from "../pages/audicraft/Audiocraft.jsx";
 import { DeepLiveCam } from "../pages/deep-live-cam/DeepLiveCam.jsx";
 import { Emotion } from "../pages/emotion/Emotion";
+import { Yolo } from "../pages/yolo/Yolo";
 
 export const router = createBrowserRouter([
 	{
@@ -18,7 +19,7 @@ export const router = createBrowserRouter([
 			},
 			{
 				path: "yolo",
-				element: "",
+				element: <Yolo/>,
 			},
 			{
 				path: "emotion",

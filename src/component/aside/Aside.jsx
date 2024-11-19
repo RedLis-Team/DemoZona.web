@@ -14,6 +14,10 @@ const ai = {
 			name: 'Emotion',
 			url: '/emotion',
 		},
+		{
+			name: 'Yolo',
+			url: '/yolo',
+		},
 	],
 	'Аудио': [
 		{
