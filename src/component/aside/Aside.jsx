@@ -6,41 +6,34 @@ import clsx from "clsx";
 
 
 const ai = {
+	'Чат-бот': [
+		{
+			name: 'Мирэа-бот',
+			url: '/v0',
+		},
+	],
 	'Видео': [
 		{
 			name: 'Замена лиц',
-			url: '/deep-live-cam',
-		},
-		{
-			name: 'Определение эмоций',
 			url: '/v1',
 		},
 		{
-			name: 'Сегментация',
+			name: 'Определение эмоций',
 			url: '/v2',
 		},
 		{
-			name: 'Определение поз',
+			name: 'Сегментация',
 			url: '/v3',
 		},
-	],
-	'Аудио': [
 		{
-			name: 'Генерация музыки',
+			name: 'Определение поз',
 			url: '/v4',
 		},
-		{
-			name: 'Озвучивание текста',
-			url: '/v5',
-		},
-		{
-			name: 'Замена голоса',
-			url: '/v6',
-		}],
+	],
 	'Фото': [
 		{
 			name: 'Генерация изображений',
-			url: '/v7',
+			url: '/v5',
 		},
 	],
 };
@@ -48,9 +41,7 @@ const ai = {
 export function Aside() {
 	const { pathname } = useLocation();
 
-	console.log(pathname);
 	const blockNames = Object.keys(ai);
-
 
 	return (
 		<aside className="aside">
