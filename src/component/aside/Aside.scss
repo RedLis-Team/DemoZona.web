@@ -65,6 +65,11 @@
 	align-items: start;
 	margin: 10px 0 0 30px;
 
+	& .active a {
+		background: #F3F3F3;
+		color: #02633D;
+	}
+
 	& a {
 		background: none;
 		padding: 4px 10px;
@@ -83,6 +88,7 @@
 		color: #F3F3F3;
 
 		transition: 0.1s;
+
 
 		&:hover {
 			background: #F3F3F3;

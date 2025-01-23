@@ -1,45 +1,54 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import logoSrc from './assert/Logo.svg';
 import './Aside.scss';
+import clsx from "clsx";
 
 
 const ai = {
 	'Видео': [
 		{
-			name: 'Deep-live-cam',
+			name: 'Замена лиц',
 			url: '/deep-live-cam',
 		},
 		{
-			name: 'Emotion',
-			url: '/emotion',
+			name: 'Определение эмоций',
+			url: '/v1',
 		},
 		{
-			name: 'Yolo',
-			url: '/yolo',
+			name: 'Сегментация',
+			url: '/v2',
+		},
+		{
+			name: 'Определение поз',
+			url: '/v3',
 		},
 	],
 	'Аудио': [
 		{
-			name: 'audiocraft',
-			url: '/audiocraft',
+			name: 'Генерация музыки',
+			url: '/v4',
 		},
 		{
-			name: 'tts',
-			url: '/tts',
+			name: 'Озвучивание текста',
+			url: '/v5',
 		},
 		{
-			name: 'seed',
-			url: '/seed',
-		},
+			name: 'Замена голоса',
+			url: '/v6',
+		}],
+	'Фото': [
 		{
-			name: 'sdxl',
-			url: 'sdxl',
+			name: 'Генерация изображений',
+			url: '/v7',
 		},
 	],
 };
 
 export function Aside() {
+	const { pathname } = useLocation();
+
+	console.log(pathname);
 	const blockNames = Object.keys(ai);
 
 
@@ -56,9 +65,10 @@ export function Aside() {
                             </span>
 							<h2>{blockName}</h2>
 						</div>
-						<div className="aside__block_nav_buttons">
-							{ai[blockName].map(({ name, url }) => (
-								<Link key={url} to={url}>{name}</Link>
+						<div className={clsx("aside__block_nav_buttons")}>
+							{ai[blockName].map(({ name, url }, index) => (
+								<span className={clsx(pathname === url && 'active')}><Link key={url}
+								                                                           to={url}>{name}</Link></span>
 							))}
 						</div>
 					</div>

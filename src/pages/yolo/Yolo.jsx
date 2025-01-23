@@ -2,7 +2,7 @@ import { Camera } from "../../component/camera/Camera";
 
 import './Yolo.scss';
 
-const emotionUrl = 'ws://10.0.58.95:8080';
+const emotionUrl = 'ws://10.0.123.194:8040';
 
 export function Yolo() {
 

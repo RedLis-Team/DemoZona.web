@@ -6,10 +6,14 @@ import clsx from "clsx";
 
 export function Camera({ wsUrl = '', width = '80%', emptyImageClassName = '', imageClassName = '' }) {
 	const wsRef = useRef(null);
+	const [text, setText] = useState('Запуск камеры');
 	const [imageUrl, setImageUrl] = useState('');
+	const [reset, setReset] = useState(0);
 
 	useEffect(() => {
 		const ws = new WebSocket(`${wsUrl}/ws`);
+
+		console.log(1);
 
 		ws.binaryType = "arraybuffer";
 
@@ -28,6 +32,12 @@ export function Camera({ wsUrl = '', width = '80%', emptyImageClassName = '', im
 
 		ws.onerror = (error) => {
 			console.error('Ошибка WebSocket:', error);
+
+			ws.close();
+
+			setTimeout(() => {
+				setReset(prev => prev++);
+			}, 1000);
 		};
 
 		wsRef.current = ws;
@@ -36,7 +46,7 @@ export function Camera({ wsUrl = '', width = '80%', emptyImageClassName = '', im
 			ws.close();
 			wsRef.current = null;
 		};
-	}, []);
+	}, [reset]);
 
 	return (
 		<div className="camera" style={{ width: width }}>
@@ -45,7 +55,7 @@ export function Camera({ wsUrl = '', width = '80%', emptyImageClassName = '', im
 				<EmptyImage
 					isLoading={!imageUrl}
 					className={clsx('camera__img', emptyImageClassName)}
-					loadingText={'Запуск камеры'}
+					loadingText={text}
 				/>
 			}
 		</div>

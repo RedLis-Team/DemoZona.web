@@ -5,13 +5,13 @@ import { ContentWithHeader } from "../../component/content/wih-header/ContentWit
 
 import './Audiocraft.scss';
 import axios from "axios";
-import {useState} from "react";
+import { useState } from "react";
 
-const audioCraftUrl = 'http://10.0.58.95:8070'
+const audioCraftUrl = 'http://10.0.123.194:8083';
 
 const audioCraftAxios = axios.create({
 	baseURL: audioCraftUrl,
-})
+});
 
 export function Audiocraft() {
 	const [text, setText] = useState('');
@@ -19,30 +19,30 @@ export function Audiocraft() {
 	const [answerUrl, setAnswerUrl] = useState('');
 
 	const onSend = async () => {
-		try{
-			setIsLoading(true)
-			setAnswerUrl('')
+		try {
+			setIsLoading(true);
+			setAnswerUrl('');
 
-			await audioCraftAxios.post(`/run?text=${text}`)
+			await audioCraftAxios.post(`/run?text=${text}`);
 
-			setAnswerUrl(`${audioCraftUrl}/answer`)
-		}catch (e){
-			console.log(e)
-		}finally {
+			setAnswerUrl(`${audioCraftUrl}/answer`);
+		} catch (e) {
+			console.log(e);
+		} finally {
 			setIsLoading(false);
 		}
-	}
+	};
 
 
 	return (
 		<div className="audiocraft">
 			<div className="audiocraft__input">
-				<Input placeholder="Текст песни" onChange={(e) => setText(e.target.value)} />
-				<Button text={'Сгенерировать'} disabled={isLoading || !text} isLoading={isLoading} onClick={onSend} />
+				<Input placeholder="Жанр песни" onChange={(e) => setText(e.target.value)}/>
+				<Button text={'Сгенерировать'} disabled={isLoading || !text} isLoading={isLoading} onClick={onSend}/>
 			</div>
 			<div className="audiocraft__result">
 				<ContentWithHeader text={'Песня'}>
-					<Audio src={answerUrl} />
+					<Audio src={answerUrl}/>
 				</ContentWithHeader>
 			</div>
 		</div>

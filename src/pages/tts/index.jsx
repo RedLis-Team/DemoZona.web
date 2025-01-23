@@ -10,7 +10,7 @@ import { localAxios } from "../../http";
 import './TTS.scss';
 
 
-const ttsUrl = 'http://127.0.0.1:8080';
+const ttsUrl = 'http://10.0.123.194:8081';
 
 const ttsAxios = axios.create({
 	baseURL: ttsUrl,
@@ -27,9 +27,9 @@ export function TTS() {
 		try {
 			setIsLoading(true);
 
-			setAnswerUrl('')
+			setAnswerUrl('');
 
-			const { data } = await localAxios.get(audioUrl, {responseType: 'blob'});
+			const { data } = await localAxios.get(audioUrl, { responseType: 'blob' });
 
 			const formData = new FormData();
 
@@ -39,7 +39,7 @@ export function TTS() {
 
 			await ttsAxios.post(`/run?text=${text}`);
 
-			setAnswerUrl(`${ttsUrl}/answer`)
+			setAnswerUrl(`${ttsUrl}/answer`);
 
 		} catch (e) {} finally {
 			setIsLoading(false);
@@ -55,7 +55,7 @@ export function TTS() {
 			</div>
 			<div className="tts__output">
 				<ContentWithHeader text={'Результат'}>
-					<Audio src={answerUrl} />
+					<Audio src={answerUrl}/>
 				</ContentWithHeader>
 			</div>
 		</div>

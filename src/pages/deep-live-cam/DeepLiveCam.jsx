@@ -7,8 +7,8 @@ import axios from "axios";
 import './DeepLiveCam.scss';
 import { Camera } from "../../component/camera/Camera";
 
-const deepLiveCamUrlWS = 'ws://10.0.58.95:8090';
-const deepLiveCamUrlHttp = 'http://10.0.58.95:8090';
+const deepLiveCamUrlWS = 'ws://10.0.123.194:8090';
+const deepLiveCamUrlHttp = 'http://10.0.123.194:8090';
 
 const deepLiveCamAxios = axios.create({
 	baseURL: deepLiveCamUrlHttp,

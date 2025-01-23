@@ -4,9 +4,10 @@ import { TTS } from "../pages/tts";
 import { Seed } from "../pages/seed";
 import { SDXL } from "../pages/sdxl/SDXL.jsx";
 import { Audiocraft } from "../pages/audicraft/Audiocraft.jsx";
-import { DeepLiveCam } from "../pages/deep-live-cam/DeepLiveCam.jsx";
 import { Emotion } from "../pages/emotion/Emotion";
 import { Yolo } from "../pages/yolo/Yolo";
+import { Pose } from "../pages/pose/Pose";
+import { DeepLiveCam } from "../pages/deep-live-cam/DeepLiveCam";
 
 export const router = createBrowserRouter([
 	{
@@ -14,15 +15,19 @@ export const router = createBrowserRouter([
 		element: <Layout/>,
 		children: [
 			{
-				path: "gpose",
-				element: "",
+				path: '/',
+				element: <h1>Стенд для тестирования нейронок</h1>,
 			},
 			{
-				path: "yolo",
+				path: "v2",
 				element: <Yolo/>,
 			},
 			{
-				path: "emotion",
+				path: "v3",
+				element: <Pose/>,
+			},
+			{
+				path: "v1",
 				element: <Emotion/>,
 			},
 			{
@@ -30,19 +35,19 @@ export const router = createBrowserRouter([
 				element: <DeepLiveCam/>,
 			},
 			{
-				path: "tts",
+				path: "v5",
 				element: <TTS/>,
 			},
 			{
-				path: "sdxl",
+				path: "v7",
 				element: <SDXL/>,
 			},
 			{
-				path: "seed",
+				path: "v6",
 				element: <Seed/>,
 			},
 			{
-				path: "audiocraft",
+				path: "v4",
 				element: <Audiocraft/>,
 			},
 		],
